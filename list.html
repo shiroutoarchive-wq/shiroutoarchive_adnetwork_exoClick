@@ -40,6 +40,27 @@ body { background:#111; color:#eee; font-family:sans-serif; min-height:100vh; }
 </style>
 </head>
 <body>
+
+<div id="age-gate" style="position:fixed;inset:0;background:#0a0a0a;z-index:9999;display:flex;align-items:center;justify-content:center;">
+  <div style="max-width:340px;width:90%;text-align:center;padding:32px 24px;background:#1a1a1a;border:1px solid #333;border-radius:14px;">
+    <div style="font-size:2.2rem;margin-bottom:12px;">🔞</div>
+    <h2 style="color:#eee;font-size:1.1rem;margin-bottom:10px;line-height:1.6;">成人向けコンテンツ</h2>
+    <p style="color:#888;font-size:0.82rem;line-height:1.7;margin-bottom:24px;">このサイトは18歳以上の方を対象とした成人向けコンテンツを含みます。<br>あなたは18歳以上ですか？</p>
+    <button onclick="enterSite()" style="display:block;width:100%;background:#e8003d;color:#fff;border:none;padding:14px;border-radius:8px;font-size:1rem;font-weight:bold;cursor:pointer;margin-bottom:12px;">✓ 18歳以上です。入場する</button>
+    <a href="https://www.google.com" style="display:block;color:#555;font-size:0.8rem;text-decoration:none;">未成年の方はこちら</a>
+    <p style="color:#444;font-size:0.7rem;margin-top:16px;line-height:1.5;">入場することで<a href="/terms.html" style="color:#555;">利用規約</a>および<a href="/privacy.html" style="color:#555;">プライバシーポリシー</a>に同意したものとみなします。</p>
+  </div>
+</div>
+<script>
+function enterSite() {
+  sessionStorage.setItem('age_ok','1');
+  document.getElementById('age-gate').style.display='none';
+}
+if (sessionStorage.getItem('age_ok')) {
+  document.getElementById('age-gate').style.display='none';
+}
+</script>
+
 <div class="header">
   <h1>素人アーカイブ — 作品一覧</h1>
   <p>全10作品を掲載中 &bull; 18歳以上限定</p>
