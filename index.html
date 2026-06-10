@@ -14,13 +14,17 @@
   .age-warning { background: #1a0010; border: 1px solid #e8003d; color: #e8003d; text-align: center; padding: 10px; font-size: 0.82rem; margin-bottom: 20px; border-radius: 4px; }
   .container { max-width: 520px; margin: 0 auto; }
   .ad-area { margin: 0 auto 20px; text-align: center; min-height: 260px; }
-  .main-product { background: #1c0a12; border: 2px solid #e8003d; border-radius: 10px; padding: 22px; margin-bottom: 24px; text-align: center; }
-  .main-product h2 { font-size: 1.05rem; color: #fff; margin-bottom: 12px; line-height: 1.6; }
-  .main-product p { font-size: 0.85rem; color: #bbb; margin-bottom: 18px; line-height: 1.7; }
+  .main-product { background: #1c0a12; border: 2px solid #e8003d; border-radius: 10px; overflow: hidden; margin-bottom: 24px; }
+  .main-product-img { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; background: #1e1e1e; }
+  .main-product-body { padding: 22px; text-align: center; }
+  .main-product-body h2 { font-size: 1.05rem; color: #fff; margin-bottom: 12px; line-height: 1.6; }
+  .main-product-body p { font-size: 0.85rem; color: #bbb; margin-bottom: 18px; line-height: 1.7; }
   .section-title { font-size: 0.78rem; color: #555; text-align: center; margin: 4px 0 14px; letter-spacing: 0.08em; border-top: 1px solid #222; padding-top: 20px; }
-  .product-box { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 8px; padding: 18px; margin-bottom: 16px; text-align: center; }
-  .product-box h2 { font-size: 0.92rem; color: #ddd; margin-bottom: 10px; line-height: 1.6; }
-  .product-box p { font-size: 0.8rem; color: #888; margin-bottom: 14px; line-height: 1.6; }
+  .product-box { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 8px; overflow: hidden; margin-bottom: 16px; }
+  .product-box-img { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; background: #1e1e1e; }
+  .product-box-body { padding: 18px; text-align: center; }
+  .product-box-body h2 { font-size: 0.92rem; color: #ddd; margin-bottom: 10px; line-height: 1.6; }
+  .product-box-body p { font-size: 0.8rem; color: #888; margin-bottom: 14px; line-height: 1.6; }
   .btn { display: block; background: #e8003d; color: #fff; text-decoration: none; padding: 14px 24px; border-radius: 8px; font-size: 1rem; font-weight: bold; }
   .btn:hover { background: #ff1a57; }
   .btn-sub { display: block; background: #2a2a2a; color: #ccc; text-decoration: none; padding: 10px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: bold; }
@@ -43,13 +47,16 @@
   <div class="ad-area" id="ad-zone">
     <script async type="application/javascript" src="https://a.magsrv.com/ad-provider.js"></script>
     <ins class="eas6a97888e2" data-zoneid="5946602"></ins>
-    <script>(AdProvider = window.AdProvider || []).push({'serve': {}});</script>
+    <script>(AdProvider = window.AdProvider || []).push({"serve": {}});</script>
   </div>
   <div class="main-product" id="main-product">
-    <div class="tags" id="main-tags"></div>
-    <h2 id="main-title">読み込み中...</h2>
-    <p id="main-desc"></p>
-    <a href="#" class="btn" id="main-btn">&#9654; 動画を見る（無料サンプルあり）</a>
+    <img class="main-product-img" id="main-img" src="" alt="" loading="eager">
+    <div class="main-product-body">
+      <div class="tags" id="main-tags"></div>
+      <h2 id="main-title">読み込み中...</h2>
+      <p id="main-desc"></p>
+      <a href="#" class="btn" id="main-btn">&#9654; 動画を見る（無料サンプルあり）</a>
+    </div>
   </div>
   <p class="section-title">&#9660; その他のおすすめ作品</p>
   <div id="other-products"></div>
@@ -62,34 +69,46 @@
     <p style="margin-top:8px">&copy; 2026 素人アーカイブ　18歳未満の方のアクセスはお断りします</p>
   </div>
 </div>
+<script id="pdata" type="application/json">
+{
+  "1": {"title":"彼氏と喧嘩中のお姉ちゃんの気分転換【車内生ハメ×屋外イラマ】","desc":"車内での激しい絡みから屋外でのディープなシーンまで。素人感あふれるリアルな展開が見どころです。","tags":["素人","個人撮影","生ハメ"],"img":"https://img.pcolle.com/1165162cd4763a51cb/2775326a17b50f146f5/161550_sample1.jpeg","url":"https://www.pcolle.com/product/detail/?product_id=2775326a17b50f146f5&af_id=91026a28151c28884"},
+  "2": {"title":"最高デカ尻OLさんのあふれだす美人オーラを堪能【歩行記録】","desc":"街中で見かけた美尻OLさんの記録映像。ムチムチのデカ尻と品のある立ち居振る舞いが絶妙です。","tags":["素人","美尻","OL"],"img":"https://img.pcolle.com/68225faa3b8d867e4/2780176a26d5e9cb441/234705_4.jpg","url":"https://www.pcolle.com/product/detail/?product_id=2780176a26d5e9cb441&af_id=91026a28151c28884"},
+  "3": {"title":"美人ナンパ【中出し×素人ガチ反応】","desc":"街でナンパした美人素人との本番映像。リアルな素人反応が見どころの傑作です。","tags":["素人","ナンパ","中出し"],"img":"https://img.pcolle.com/35458f82f1a3a2a0/24439666ee9f7be04e9/192707_1.jpg","url":"https://www.pcolle.com/product/detail/?product_id=24439666ee9f7be04e9&af_id=91026a28151c28884"},
+  "4": {"title":"制服美少女の放課後【ガチ素人】","desc":"放課後の素人美少女との濃厚なひと時。フレッシュな素人感が詰まった逸品です。","tags":["素人","制服","美少女"],"img":"https://img.pcolle.com/1546965d67ab8db073/272035697bfbfa7155d/093154_IMG_5580.jpeg","url":"https://www.pcolle.com/product/detail/?product_id=272035697bfbfa7155d&af_id=91026a28151c28884"},
+  "5": {"title":"触診3 保育士さんのHカップ巨乳を本格揉みしだき","desc":"Hカップの巨乳保育士を本格触診。乳首責めでダメと喘ぐ敏感ボディをイカせ寸前まで追い込む濃厚作品。","tags":["素人","巨乳","触診"],"img":"https://img.pcolle.com/1903569eb62e4be23b/27651269f61fb36c6dd/010051_ruru1g.gif","url":"https://www.pcolle.com/product/detail/?product_id=27651269f61fb36c6dd&af_id=91026a28151c28884"},
+  "6": {"title":"秘匿カルテ おっぱい診療 清楚系おっとり美人を徹底触診","desc":"清楚系おっとり美人を徹底触診。羞恥で色付く敏感乳首が見どころの品格ある一作です。","tags":["素人","清楚","おっぱい"],"img":"https://img.pcolle.com/1898469d7a0f217c71/27549269d8c5960b15a/184038_kito-01.gif","url":"https://www.pcolle.com/product/detail/?product_id=27549269d8c5960b15a&af_id=91026a28151c28884"},
+  "7": {"title":"同行中OL 上司が運転中 私は隣でバレないようにスリル満点動画撮影","desc":"上司の運転中に隣でスリル満点の撮影。素人OLのドキドキ感が伝わるリアルな映像です。","tags":["素人","OL","露出"],"img":"https://img.pcolle.com/1895469cc423d60bfe/2780386a27ea3e2f8a3/192606_1.gif","url":"https://www.pcolle.com/product/detail/?product_id=2780386a27ea3e2f8a3&af_id=91026a28151c28884"},
+  "8": {"title":"触診6 Hカップ巨乳保育士をオイルヌルヌルで電マ乳首責め","desc":"オイルでぬるぬるにした巨乳保育士を電マで徹底責め。四つん這いで腰をヘコヘコさせながらマジ絶頂する激エロ作品。","tags":["素人","巨乳","電マ"],"img":"https://img.pcolle.com/1903569eb62e4be23b/2773566a105c1a8d036/223730_rrrrr.gif","url":"https://www.pcolle.com/product/detail/?product_id=2773566a105c1a8d036&af_id=91026a28151c28884"},
+  "9": {"title":"性体4 ど巨乳スライム乳 もみまくり感度良好で乳首びんびん","desc":"スライムのように柔らかいど巨乳を存分にもみまくり。感度良好で乳首びんびんの素人美女の反応が最高です。","tags":["素人","巨乳","おっぱい"],"img":"https://img.pcolle.com/1896069ce1f7cd62d3/27651169f60d76d4f78/234302_1.gif","url":"https://www.pcolle.com/product/detail/?product_id=27651169f60d76d4f78&af_id=91026a28151c28884"},
+  "10": {"title":"性体6 巨乳ちゃんと美乳ちゃん2人でおっぱいもみまくり おまたもぷにぷにマッサージ","desc":"巨乳・美乳の素人美女2人が登場する贅沢な作品。おまたのぷにぷにマッサージも収録した大満足の内容です。","tags":["素人","おっぱい","巨乳"],"img":"https://img.pcolle.com/1896069ce1f7cd62d3/2774386a12fbb03daf7/222256_1.gif","url":"https://www.pcolle.com/product/detail/?product_id=2774386a12fbb03daf7&af_id=91026a28151c28884"}
+}
+</script>
 <script>
-var products = {
-  '1': { title: '彼氏と喧嘩中のお姉ちゃんの気分転換【車内生ハメ×屋外イラマ】', desc: '車内での激しい絡みから屋外でのディープなシーンまで。素人感あふれるリアルな展開が見どころです。', tags: ['素人','個人撮影','生ハメ'], url: 'https://www.pcolle.com/product/detail/?product_id=2775326a17b50f146f5&af_id=91026a28151c28884' },
-  '2': { title: '最高デカ尻OLさんのあふれだす美人オーラを堪能【歩行記録】', desc: '街中で見かけた美尻OLさんの記録映像。ムチムチのデカ尻と品のある立ち居振る舞いが絶妙です。', tags: ['素人','美尻','OL'], url: 'https://www.pcolle.com/product/detail/?product_id=2780176a26d5e9cb441&af_id=91026a28151c28884' },
-  '3': { title: '美人ナンパ【中出し×素人ガチ反応】', desc: '街でナンパした美人素人との本番映像。リアルな素人反応が見どころの傑作です。', tags: ['素人','ナンパ','中出し'], url: 'https://www.pcolle.com/product/detail/?product_id=24439666ee9f7be04e9&af_id=91026a28151c28884' },
-  '4': { title: '制服美少女の放課後【ガチ素人】', desc: '放課後の素人美少女との濃厚なひと時。フレッシュな素人感が詰まった逸品です。', tags: ['素人','制服','美少女'], url: 'https://www.pcolle.com/product/detail/?product_id=272035697bfbfa7155d&af_id=91026a28151c28884' },
-  '5': { title: '青空ピンク生！初めての声かけフロント逆さ収録【60fps・24分・4名】', desc: '鮮明な60fps映像でとらえたリアルな素人映像。24分4名収録の大ボリュームです。', tags: ['素人','60fps','盗撮風'], url: 'https://www.pcolle.com/product/detail/?product_id=27651269f61fb36c6dd&af_id=91026a28151c28884' },
-  '6': { title: '素人美女の自撮りプライベート映像流出', desc: '自撮り映像ならではのリアルな素人感。プライベートな雰囲気がたまらない作品です。', tags: ['素人','自撮り','プライベート'], url: 'https://www.pcolle.com/product/detail/?product_id=27549269d8c5960b15a&af_id=91026a28151c28884' },
-  '7': { title: '歩行記録【美人オーラ全3名】', desc: '街で見かけた美人3名の歩行記録。それぞれ異なる魅力を持つ素人美女たちの映像です。', tags: ['素人','盗撮風','美人'], url: 'https://www.pcolle.com/product/detail/?product_id=2780386a27ea3e2f8a3&af_id=91026a28151c28884' },
-  '8': { title: '素人系パンチラ収録【Pチラ座り】', desc: '絶妙なアングルで撮影した素人パンチラ映像。日常的なシチュエーションがエロさを際立てます。', tags: ['素人','パンチラ','制服'], url: 'https://www.pcolle.com/product/detail/?product_id=2773566a105c1a8d036&af_id=91026a28151c28884' },
-  '9': { title: '素人ガチイダク！60fps青空収録【4名・24分】', desc: '青空の下でのガチな素人映像。60fpsの鮮明映像で4名分たっぷり収録した大作です。', tags: ['素人','60fps','アウトドア'], url: 'https://www.pcolle.com/product/detail/?product_id=27651169f60d76d4f78&af_id=91026a28151c28884' },
-  '10': { title: '巨乳ちゃんと美乳ちゃん2人でおっぱいもみまくり！おまたぷにぷにマッサージ', desc: '2人の素人美女が登場する贅沢な作品。巨乳・美乳それぞれの魅力をたっぷり堪能できます。', tags: ['素人','おっぱい','巨乳'], url: 'https://www.pcolle.com/product/detail/?product_id=2774386a12fbb03daf7&af_id=91026a28151c28884' }
-};
+var P = JSON.parse(document.getElementById('pdata').textContent);
 var pid = new URLSearchParams(window.location.search).get('pid') || '1';
-var main = products[pid] || products['1'];
+var main = P[pid] || P['1'];
+
+document.getElementById('main-img').src = main.img;
+document.getElementById('main-img').alt = main.title;
 document.getElementById('main-title').textContent = main.title;
 document.getElementById('main-desc').textContent = main.desc;
 document.getElementById('main-btn').href = main.url;
 document.getElementById('main-tags').innerHTML = main.tags.map(function(t){ return '<span class="tag">' + t + '</span>'; }).join('');
+
 var otherEl = document.getElementById('other-products');
-Object.keys(products).forEach(function(key) {
+Object.keys(P).forEach(function(key) {
   if (key === pid) return;
-  var p = products[key];
+  var p = P[key];
   var div = document.createElement('div');
   div.className = 'product-box';
-  div.innerHTML = '<div class="tags">' + p.tags.map(function(t){ return '<span class="tag-sub">' + t + '</span>'; }).join('') + '</div>' +
-    '<h2>' + p.title + '</h2><p>' + p.desc + '</p>' +
-    '<a href="/?pid=' + key + '" class="btn-sub">&#9654; この動画を見る</a>';
+  div.innerHTML =
+    '<img class="product-box-img" src="' + p.img + '" alt="' + p.title + '" loading="lazy">' +
+    '<div class="product-box-body">' +
+      '<div class="tags">' + p.tags.map(function(t){ return '<span class="tag-sub">' + t + '</span>'; }).join('') + '</div>' +
+      '<h2>' + p.title + '</h2>' +
+      '<p>' + p.desc + '</p>' +
+      '<a href="/?pid=' + key + '" class="btn-sub">&#9654; この動画を見る</a>' +
+    '</div>';
   otherEl.appendChild(div);
 });
 </script>
