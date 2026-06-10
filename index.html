@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>素人アーカイブ</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #111; color: #eee; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }
+  .container { max-width: 480px; width: 100%; text-align: center; }
+  h1 { font-size: 1.1rem; color: #ccc; margin-bottom: 24px; line-height: 1.6; }
+  .btn { display: block; background: #e8003d; color: #fff; text-decoration: none; padding: 16px 24px; border-radius: 8px; font-size: 1.1rem; font-weight: bold; margin: 16px auto; max-width: 320px; }
+  .btn:hover { background: #ff1a57; }
+  .ad-area { margin: 24px auto; min-height: 100px; }
+  .note { font-size: 0.75rem; color: #666; margin-top: 20px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1 id="title">素材を読み込み中...</h1>
+  <div class="ad-area" id="ad-zone">
+    <!-- 広告タグ後で追加 -->
+  </div>
+  <a href="#" class="btn" id="goto-btn">▶ 動画を見る</a>
+  <p class="note">※18歳未満の方のアクセスはお断りします</p>
+</div>
+<script>
+const products = {
+  '1': 'https://www.pcolle.com/product/detail/?product_id=2775326a17b50f146f5&af_id=91026a28151c28884',
+  '2': 'https://www.pcolle.com/product/detail/?product_id=2780176a26d5e9cb441&af_id=91026a28151c28884',
+  '3': 'https://www.pcolle.com/product/detail/?product_id=24439666ee9f7be04e9&af_id=91026a28151c28884',
+  '4': 'https://www.pcolle.com/product/detail/?product_id=272035697bfbfa7155d&af_id=91026a28151c28884',
+  '5': 'https://www.pcolle.com/product/detail/?product_id=27651269f61fb36c6dd&af_id=91026a28151c28884',
+  '6': 'https://www.pcolle.com/product/detail/?product_id=27549269d8c5960b15a&af_id=91026a28151c28884',
+  '7': 'https://www.pcolle.com/product/detail/?product_id=2780386a27ea3e2f8a3&af_id=91026a28151c28884',
+  '8': 'https://www.pcolle.com/product/detail/?product_id=2773566a105c1a8d036&af_id=91026a28151c28884',
+  '9': 'https://www.pcolle.com/product/detail/?product_id=27651169f60d76d4f78&af_id=91026a28151c28884',
+  '10': 'https://www.pcolle.com/product/detail/?product_id=2774386a12fbb03daf7&af_id=91026a28151c28884'
+};
+const pid = new URLSearchParams(window.location.search).get('pid') || '1';
+document.getElementById('goto-btn').href = products[pid] || products['1'];
+</script>
+</body>
+</html>
