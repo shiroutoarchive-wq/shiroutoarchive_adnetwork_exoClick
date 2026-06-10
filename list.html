@@ -15,14 +15,15 @@ body { background:#111; color:#eee; font-family:sans-serif; min-height:100vh; }
 .search-area { padding:12px 16px; background:#161616; border-bottom:1px solid #1e1e1e; }
 .search-inner { max-width:760px; margin:0 auto; }
 .search-input { width:100%; background:#222; border:1px solid #333; color:#eee; padding:10px 14px; border-radius:8px; font-size:0.9rem; outline:none; }
+.search-input::placeholder { color:#555; }
 .search-input:focus { border-color:#e8003d; }
 .search-count { font-size:0.73rem; color:#555; margin-top:6px; }
 .container { max-width:760px; margin:0 auto; padding:16px; }
 .back { display:inline-block; margin-bottom:14px; font-size:0.82rem; color:#666; text-decoration:none; }
 .back:hover { color:#ccc; }
 .grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-@media(max-width:480px){ .grid{ grid-template-columns:1fr; } }
-.card { background:#1a1a1a; border:1px solid #252525; border-radius:10px; overflow:hidden; display:flex; flex-direction:column; }
+@media(max-width:520px){ .grid{ grid-template-columns:1fr; } }
+.card { background:#1a1a1a; border:1px solid #252525; border-radius:10px; overflow:hidden; display:flex; flex-direction:column; transition:border-color 0.15s; }
 .card:hover { border-color:#e8003d; }
 .card-img { width:100%; aspect-ratio:16/10; object-fit:cover; background:#1e1e1e; display:block; }
 .card-body { padding:12px; flex:1; display:flex; flex-direction:column; }
@@ -32,53 +33,86 @@ body { background:#111; color:#eee; font-family:sans-serif; min-height:100vh; }
 .tag { display:inline-block; background:#222; color:#888; font-size:0.62rem; padding:2px 6px; border-radius:3px; margin:2px 2px 0 0; }
 .card-btn { display:block; background:#e8003d; color:#fff; text-decoration:none; text-align:center; padding:9px; border-radius:6px; font-size:0.8rem; font-weight:bold; }
 .card-btn:hover { background:#ff1a57; }
-.no-results { text-align:center; padding:60px 20px; color:#555; }
+.no-results { text-align:center; padding:60px 20px; color:#555; font-size:0.9rem; display:none; }
 .footer { text-align:center; padding:24px 16px; font-size:0.72rem; color:#444; border-top:1px solid #1a1a1a; margin-top:8px; }
 .footer a { color:#555; text-decoration:none; margin:0 8px; }
+.footer a:hover { color:#aaa; }
 </style>
 </head>
 <body>
-<div class="header"><h1>素人アーカイブ — 作品一覧</h1><p>全10作品を掌載中</p></div>
+<div class="header">
+  <h1>素人アーカイブ — 作品一覧</h1>
+  <p>全10作品を掲載中 &bull; 18歳以上限定</p>
+</div>
 <div class="age-warn">&#9888;&#65039; 当サイトは18歳以上の方を対象としています。未成年の方のアクセスはお断りします。</div>
-<div class="search-area"><div class="search-inner"><input type="text" class="search-input" id="q" placeholder="タイトル・タグで絞り込む..." oninput="doSearch()"><div class="search-count" id="cnt">全10作品</div></div></div>
-<div class="container"><a href="/" class="back">&#8592; トップページ</a>
-<div class="grid" id="grid"></div><div class="no-results" id="nores" style="display:none">該当する作品が見つかりません</div></div>
-<div class="footer"><a href="/">トップ</a><a href="/privacy.html">プライバシーポリシー</a><a href="/terms.html">利用規約</a><p style="margin-top:8px">&copy; 2026 素人アーカイブ</p></div>
+<div class="search-area">
+  <div class="search-inner">
+    <input type="text" class="search-input" id="q" placeholder="&#128269; タイトル・タグで絞り込む...">
+    <div class="search-count" id="cnt">全10作品</div>
+  </div>
+</div>
+<div class="container">
+  <a href="/" class="back">&#8592; トップページ</a>
+  <div class="grid" id="grid"></div>
+  <div class="no-results" id="nores">&#128269; 該当する作品が見つかりませんでした</div>
+</div>
+<div class="footer">
+  <a href="/">トップ</a>
+  <a href="/privacy.html">プライバシーポリシー</a>
+  <a href="/terms.html">利用規約</a>
+  <p style="margin-top:8px">&copy; 2026 素人アーカイブ &nbsp; 18歳未満の方のアクセスはお断りします</p>
+</div>
 <script>
-var P=[
-{p:1,t:"彼氏と喧喘中のお姉ちゃんの気分転換《車内手鍾生ハメ×雑居ビル屋外通路でイラマ》",tg:["素人","個人撕影","生ハメ","屋外"],i:"https://img.pcolle.com/1165162cd4763a51cb/2775326a17b50f146f5/161550_sample1.jpeg"},
-{p:2,t:"[4K]アプリで知り合ったお姉さん♥私服でオモチャ攻め♥スポブラ着用！♥パンツの中で直接ぐにぐにで感じちゃう",tg:["素人","4K","オモチャ"],i:"https://img.pcolle.com/68225faa3b8d867e4/2780176a26d5e9cb441/234705_4.jpg"},
-{p:3,t:"[歴代No.1評価/夏の逃劇]絶世の色白美女ふたたび。猛暑につき「ほぼ裸」で降臨。生、生、生の孵。",tg:["素人","美女","ハメ撮り","中出し"],i:"https://img.pcolle.com/35458f82f1a3a2a0/24439666ee9f7be04e9/192707_1.jpg"},
-{p:4,t:"171cm美容部員ローターオナ生フェラ騎乗位グラインド＋生挿入たっぷり中出し",tg:["素人","美容部員","中出し"],i:"https://img.pcolle.com/1546965d67ab8db073/272035697bfbfa7155d/093154_IMG_5580.jpeg"},
-{p:5,t:"【触診3】保育士さんのHカップ巨乳を本格揉みしだき！乳首責めで「ダメ…」と嗘ぐ敏感ボディを治療名目でイカせ寸前",tg:["素人","巨乳","おっぱい","触診"],i:"https://img.pcolle.com/1903569eb62e4be23b/27651269f61fb36c6dd/010051_ruru1g.gif"},
-{p:6,t:"【秘匹カルテ #01/おっぱい診療】春の診れ！清楚系おっとり美人を徹底触診…羞恥で色付く敏感乳首！",tg:["素人","清楚","おっぱい","触診"],i:"https://img.pcolle.com/1898469d7a0f217c71/27549269d8c5960b15a/184038_kito-01.gif"},
-{p:7,t:"【同行中OL】上司が運転中、私は隣でバレないようにスリル満点動画撮影♥",tg:["素人","OL","露出","スリル"],i:"https://img.pcolle.com/1895469cc423d60bfe/2780386a27ea3e2f8a3/192606_1.gif"},
-{p:8,t:"【触診6】Hカップ巨乳保育士をオイルヌルヌルで電マ乳首責め！四つ週いで腰ヘコヘコしながら「あイックッ…」とマジ絶頂",tg:["素人","巨乳","保育士","電マ"],i:"https://img.pcolle.com/1903569eb62e4be23b/2773566a105c1a8d036/223730_rrrrr.gif"},
-{p:9,t:"【性体4】ど巨乳スライム乳！！もみまくり感度良好で乳首びんびん！！",tg:["素人","巨乳","おっぱい"],i:"https://img.pcolle.com/1896069ce1f7cd62d3/27651169f60d76d4f78/234302_1.gif"},
-{p:10,t:"【性体6】巨乳ちゃんと美乳3！！2人でおっぱいもみまくり！おまたもぷにぷにマッサージ！",tg:["素人","巨乳","おっぱい","2名"],i:"https://img.pcolle.com/1896069ce1f7cd62d3/2774386a12fbb03daf7/222256_1.gif"}
+var P = [
+  { p:1, t:'【彼氏と喧嘩中のお姉ちゃんの気分転換】車内で手錠生ハメ×雑居ビル屋外通路でイラマ〜自ら求める姉〜', tg:['素人','個人撮影','生ハメ','屋外'], i:'https://img.pcolle.com/1165162cd4763a51cb/2775326a17b50f146f5/161550_sample1.jpeg' },
+  { p:2, t:'【4K】アプリで知り合ったお姉さん♪私服でオモチャ攻め♪スポブラ着用！♪パンツの中で直接ぐにぐにで感じちゃう', tg:['素人','4K','オモチャ'], i:'https://img.pcolle.com/68225faa3b8d867e4/2780176a26d5e9cb441/234705_4.jpg' },
+  { p:3, t:'[歴代No.1評価/夏の逝劇]絶世の色白美女ふたたび。猛暑につき「ほぼ裸」で降臨。生、生、生の嵐。', tg:['素人','美女','ハメ撮り','中出し'], i:'https://img.pcolle.com/35458f82f1a3a2a0/24439666ee9f7be04e9/192707_1.jpg' },
+  { p:4, t:'171cm美容部員ローターオナ生フェラ騎乗位グラインド＋生挿入たっぷり中出し', tg:['素人','美容部員','中出し','生フェラ'], i:'https://img.pcolle.com/1546965d67ab8db073/272035697bfbfa7155d/093154_IMG_5580.jpeg' },
+  { p:5, t:'【触診3】保育士さんのHカップ巨乳を本格揉みしだき！乳首責めで「ダメ…」と喘ぐ敏感ボディを治療名目でイカせ寸前', tg:['素人','巨乳','おっぱい','触診'], i:'https://img.pcolle.com/1903569eb62e4be23b/27651269f61fb36c6dd/010051_ruru1g.gif' },
+  { p:6, t:'【秘匿カルテ #01/おっぱい診療】春の訪れ！清楚系おっとり美人を徹底触診…羞恥で色付く敏感乳首！', tg:['素人','清楚','おっぱい','触診'], i:'https://img.pcolle.com/1898469d7a0f217c71/27549269d8c5960b15a/184038_kito-01.gif' },
+  { p:7, t:'【同行中OL】上司が運転中、私は隣でバレないようにスリル満点動画撮影♡', tg:['素人','OL','露出','スリル'], i:'https://img.pcolle.com/1895469cc423d60bfe/2780386a27ea3e2f8a3/192606_1.gif' },
+  { p:8, t:'【触診6】Hカップ巨乳保育士をオイルヌルヌルで電マ乳首責め！四つん這いで腰ヘコヘコしながら「あイックッ…」とマジ絶頂', tg:['素人','巨乳','保育士','電マ'], i:'https://img.pcolle.com/1903569eb62e4be23b/2773566a105c1a8d036/223730_rrrrr.gif' },
+  { p:9, t:'【性体4】ど巨乳スライム乳！！もみまくり感度良好で乳首びんびん！！', tg:['素人','巨乳','おっぱい'], i:'https://img.pcolle.com/1896069ce1f7cd62d3/27651169f60d76d4f78/234302_1.gif' },
+  { p:10, t:'【性体6】巨乳ちゃんと美乳ちゃん２！2人でおっぱいもみまくり！おまたもぷにぷにマッサージ！', tg:['素人','巨乳','おっぱい','2名'], i:'https://img.pcolle.com/1896069ce1f7cd62d3/2774386a12fbb03daf7/222256_1.gif' }
 ];
-function render(list){
-  var g=document.getElementById("grid"),n=document.getElementById("nores"),c=document.getElementById("cnt");
-  g.innerHTML="";
-  if(!list.length){n.style.display="";c.textContent="0件";return;}
-  n.style.display="none";
-  c.textContent=list.length+"件 / 全10作品";
-  list.forEach(function(p){
-    var d=document.createElement("div");
-    d.className="card";
-    d.innerHTML='<img class="card-img" src="'+p.i+'" alt="'+p.t+'" loading="lazy" onerror="this.style.minHeight='80px'">'+
-    '<div class="card-body"><div class="card-num">No.'+p.p+'</div>'+
-    '<div class="card-title">'+p.t+'</div>'+
-    '<div class="tags">'+p.tg.map(function(t){return'<span class="tag">'+t+'</span>';}).join("")+'</div>'+
-    '<a href="/?pid='+p.p+'" class="card-btn">&#9654; 視聴する</a></div>';
+
+function render(list) {
+  var g = document.getElementById('grid');
+  var nores = document.getElementById('nores');
+  var cnt = document.getElementById('cnt');
+  g.innerHTML = '';
+  if (!list.length) {
+    nores.style.display = 'block';
+    cnt.textContent = '0件';
+    return;
+  }
+  nores.style.display = 'none';
+  cnt.textContent = list.length + '件 / 全10作品';
+  list.forEach(function(p) {
+    var d = document.createElement('div');
+    d.className = 'card';
+    var tags = p.tg.map(function(t) { return '<span class="tag">' + t + '</span>'; }).join('');
+    d.innerHTML =
+      '<img class="card-img" src="' + p.i + '" alt="" loading="lazy">' +
+      '<div class="card-body">' +
+        '<div class="card-num">No.' + p.p + '</div>' +
+        '<div class="card-title">' + p.t + '</div>' +
+        '<div class="tags">' + tags + '</div>' +
+        '<a href="/?pid=' + p.p + '" class="card-btn">&#9654; 視聴する</a>' +
+      '</div>';
     g.appendChild(d);
   });
 }
-function doSearch(){
-  var q=document.getElementById("q").value.toLowerCase();
-  if(!q){render(P);return;}
-  render(P.filter(function(p){return p.t.toLowerCase().indexOf(q)>-1||p.tg.some(function(t){return t.indexOf(q)>-1;});}));
-}
+
+document.getElementById('q').addEventListener('input', function() {
+  var q = this.value.trim().toLowerCase();
+  if (!q) { render(P); return; }
+  render(P.filter(function(p) {
+    return p.t.toLowerCase().indexOf(q) > -1 || p.tg.some(function(t) { return t.indexOf(q) > -1; });
+  }));
+});
+
 render(P);
 </script>
-</body></html>
+</body>
+</html>
